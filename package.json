@@ -1,0 +1,17 @@
+{
+  "name": "crytalhunter",
+  "version": "1.0.0",
+  "description": "fun multiplayer mobile multiplayer game",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.15.2",
+    "node": "0.0.0",
+    "socket.io": "^1.7.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ivytower",
+  "license": "ISC"
+}

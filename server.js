@@ -11,6 +11,7 @@ console.log("socket server running");
 var socket=require('socket.io');
 var io=socket(server);
 var pack = [];
+var SOCKET_LIST = {};
 var connections;
 logsprite();
 io.sockets.on('connection',newConnection);
@@ -50,6 +51,18 @@ function logsprite() {
 
     //console.log(movement);
 }
+    
+ // updates all elements   
+setInterval(function(){
+	var packs = Entity.getFrameUpdateData();
+	for(var i in SOCKET_LIST){
+		var socket = SOCKET_LIST[i];
+		socket.emit('init',packs.initPack);
+		socket.emit('update',packs.updatePack);
+		socket.emit('remove',packs.removePack);
+	}
+	
+},1000/25);
 /*function updateast( packet) {
     for (var i in packet) {
 
